@@ -9,10 +9,14 @@ import "./index.css";
  */
 import * as React from "react";
 import { hydrate } from "react-dom";
+// import { BrowserRouter } from "react-router-dom";
+import {BrowserRouter , Route, Routes, useLocation, useRoutes} from "react-router-dom";
 
 import ConfigContext from "../components/ConfigContext";
 import { Config } from "../server/config";
 import App from "../App";
+
+import Home from '../views/home/home'
 
 const config = (window as any).__CONFIG__ as Config;
 delete (window as any).__CONFIG__;
@@ -23,7 +27,11 @@ const render = () => {
     <>
       {/* The configuration is the outmost component. This allows us to read the configuration even in the theme */}
       <ConfigContext.Provider value={config}>
-        <App />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
       </ConfigContext.Provider>
     </>,
     document.getElementById("root"),
