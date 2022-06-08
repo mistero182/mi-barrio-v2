@@ -3,6 +3,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 
 import "./index.css";
+//import "../App.css"
 
 /**
  * Frontend code running in browser
@@ -16,7 +17,8 @@ import ConfigContext from "../components/ConfigContext";
 import { Config } from "../server/config";
 import App from "../App";
 
-import Home from '../views/home/home'
+import { Home } from '../views/home/home'
+import { Distrito } from '../views/distrito/Distrito'
 
 const config = (window as any).__CONFIG__ as Config;
 delete (window as any).__CONFIG__;
@@ -30,6 +32,7 @@ const render = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/distrito" element={<Distrito />} />
           </Routes>
         </BrowserRouter>
       </ConfigContext.Provider>
