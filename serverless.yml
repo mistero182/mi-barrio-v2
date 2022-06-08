@@ -1,4 +1,6 @@
-service: serverless-react-boilerplate
+org: ocuba
+app: mi-barrio-v2
+service: mi-barrio-v2
 frameworkVersion: "3"
 useDotenv: true
 variablesResolutionMode: 20210326
